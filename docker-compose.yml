@@ -1,16 +1,12 @@
-version: '2'
-services:
-  portal:
-    build: .
-    ports:
-     - "8080:8080"
-     - "11311:11311"
-    depends_on:
-     - mysql
-  mysql:
-    image: mdelapenya/mysql-utf8
-    environment:
-      - MYSQL_ROOT_PASSWORD=my-secret-pw
-      - MYSQL_DATABASE=lportal
-      - character-set-server=utf8mb4
-      - collation-server=utf8mb4_unicode_ci
+portal:
+  image: liftedkilt/portal:latest
+  ports:
+   - "8080:8080"
+   - "11311:11311"
+mysql:
+  image: mdelapenya/mysql-utf8
+  environment:
+    - MYSQL_ROOT_PASSWORD=my-secret-pw
+    - MYSQL_DATABASE=lportal
+    - character-set-server=utf8mb4
+    - collation-server=utf8mb4_unicode_ci
